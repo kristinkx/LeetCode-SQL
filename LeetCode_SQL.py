@@ -68,3 +68,19 @@ FROM Cinema
 WHERE id % 2 = 1
 AND description NOT LIKE '%boring%'
 ORDER BY rating DESC
+
+
+# ******************* Difficulty Level: Medium ******************************
+# 177. Nth Highest Salary (accepted)
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+  RETURN (
+     
+      # Write your MySQL query statement below.
+      SELECT IF (N > COUNT(s), NULL, MIN(s))
+      FROM (SELECT DISTINCT (salary) AS s FROM Employee
+      ORDER by salary DESC
+      LIMIT N
+      ) as t           
+  );
+END
