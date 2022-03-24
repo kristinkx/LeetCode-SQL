@@ -34,6 +34,28 @@ SELECT c.name AS Customers
 FROM Customers c
 WHERE c.id NOT IN (SELECT customerId FROM Orders)
 
+# 627. Swap Salary
+UPDATE salary 
+ SET sex = IF (sex = 'm', 'f', 'm')
+
+
+# 1179. Reformat Department Table (accepted)
+SELECT ID,
+sum(case when month ='Jan' then revenue else NULL end) Jan_Revenue,
+sum(case when month ='Feb' then revenue else NULL end) Feb_Revenue,
+sum(case when month ='Mar' then revenue else NULL end) Mar_Revenue,
+sum(case when month ='Apr' then revenue else NULL end) Apr_Revenue,
+sum(case when month ='May' then revenue else NULL end) May_Revenue,
+sum(case when month ='Jun' then revenue else NULL end) Jun_Revenue,
+sum(case when month ='Jul' then revenue else NULL end) Jul_Revenue,
+sum(case when month ='Aug' then revenue else NULL end) Aug_Revenue,
+sum(case when month ='Sep' then revenue else NULL end) Sep_Revenue,
+sum(case when month ='Oct' then revenue else NULL end) Oct_Revenue,
+sum(case when month ='Nov' then revenue else NULL end) Nov_Revenue,
+sum(case when month ='Dec' then revenue else NULL end) Dec_Revenue
+FROM Department
+GROUP BY id;
+
 # 197. Rising Temperatures (accepted)
 SELECT e.id AS Id
 FROM Weather w, Weather e
