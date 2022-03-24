@@ -34,9 +34,15 @@ SELECT c.name AS Customers
 FROM Customers c
 WHERE c.id NOT IN (SELECT customerId FROM Orders)
 
-# 197. Rising Temperatures 
+# 197. Rising Temperatures (accepted)
 SELECT e.id AS Id
 FROM Weather w, Weather e
 WHERE e.temperature > w.temperature
 AND DATEDIFF(e.recordDate, w.recordDate) = 1
 
+# 620. Not Boring Movies (accepted)
+SELECT id, movie, description, rating
+FROM Cinema
+WHERE id % 2 = 1
+AND description NOT LIKE '%boring%'
+ORDER BY rating DESC
